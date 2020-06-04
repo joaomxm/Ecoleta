@@ -1,31 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.html" %}
+
+{% set pageId = "page-create-point" %}
+
+{% block title %}
     <title>Criar um ponto de coleta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/create-point.css">
+{% endblock title %}
 
-    <link rel="stylesheet" href="styles/responsive.css">
+{% block styles %}
+   <link rel="stylesheet" href="styles/create-point.css">
+{% endblock styles %}
 
+{% block content %}
 
-</head>
-<body>
-
-    <div id="page-create-point">
-
-        
-
-            <header>
-                <img src="assets/logo.svg" alt="logomarca">
-                
-                <a href="index.html">
-                    <span></span>
-                    Voltar para Home</a>
-            </header>
+        {% include "partials/page-header.html" %}
 
         <form action="">
             <h1>Cadastro do ponto de coleta</h1>
@@ -35,10 +22,20 @@
                     <h2>Dados da entidade</h2>
                 </legend>
 
+                <div class="field-group">
+
                 <div class="field">
                     <label for="name">Nome da entidade</label>
                     <input type="text" name="name" required>
                 </div>
+                <div class="field">
+                    <label for="image">Imagem da entidade</label>
+                    <input type="url" placeholder ="http://"name="image" required>
+                </div>
+
+
+                </div>
+
 
                 <div class="field-group">
                     <div class="field">
@@ -83,36 +80,37 @@
             <fieldset>
                 <legend>
                     <h2>Itens de coleta</h2>
+                    <span>Selecione um ou mais itens abaixo.</span>
                 </legend>
 
                 <div class="items-grid">
                     <li data-id="1" >
-                        <img src="/Ecoleta/assets/lampadas.svg" alt="lampadas">
+                        <img src="/assets/lampadas.svg" alt="lampadas">
                     <span>Lâmpadas</span>
                 </li>
 
                 <li data-id="2">
-                    <img src="/Ecoleta/assets/baterias.svg" alt="Pilhas e Baterias">
+                    <img src="/assets/baterias.svg" alt="Pilhas e Baterias">
                     <span>Pilhas e Baterias</span>
                 </li>
 
                 <li data-id="3">
-                    <img src="/Ecoleta/assets/papeis-papelao.svg" alt="Papeis e Papelão">
+                    <img src="/assets/papeis-papelao.svg" alt="Papeis e Papelão">
                     <span>Papeis e Papelão</span>
                 </li>
 
                 <li data-id="4">
-                    <img src="/Ecoleta/assets/eletronicos.svg" alt="Residuos eletronicos">
+                    <img src="/assets/eletronicos.svg" alt="Residuos eletronicos">
                     <span>Resíduos eletrônicos</span>
                 </li>
 
                 <li data-id="5">
-                    <img src="/Ecoleta/assets/organicos.svg" alt="Resíduos Orgânicos">
+                    <img src="/assets/organicos.svg" alt="Resíduos Orgânicos">
                     <span>Resíduos Orgânicos</span>
                 </li>
 
                 <li data-id="6">
-                    <img src="/Ecoleta/assets/oleo.svg" alt="Óleo de cozinha">
+                    <img src="/assets/oleo.svg" alt="Óleo de cozinha">
                     <span>Óleo de cozinha</span>
                 </li>
             
@@ -124,14 +122,13 @@
             <button type="submit">Cadastrar ponto de coleta</button>
 
         </form>
-       
-        
     
-        
-    </div>
+{% endblock content %}
 
+{% block scripts %}
+    <script src="/scripts/create-point.js"></script>
+{% endblock scripts %}
     
     
-    <script src="/Ecoleta/scripts/create-point.js"></script>
 </body>
 </html>
